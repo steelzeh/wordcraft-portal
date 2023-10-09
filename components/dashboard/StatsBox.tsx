@@ -8,7 +8,7 @@ export default function StatsBox({item}: {item: StatsItem}) {
     return (
         <div className="relative overflow-hidden rounded-lg bg-white px-4 pt-5 shadow sm:px-6 sm:pt-6">
             <dt>
-                <div className="absolute rounded-md bg-primary-light p-3">
+                <div className="absolute rounded-md bg-primary-normal p-3">
                     <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
                 </div>
                 <p className="ml-16 truncate text-sm font-medium text-gray-500">{item.name}</p>

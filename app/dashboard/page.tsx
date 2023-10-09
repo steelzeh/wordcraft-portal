@@ -2,14 +2,12 @@
 
 import {CursorArrowRaysIcon, EnvelopeOpenIcon, UsersIcon} from '@heroicons/react/24/outline'
 import React from "react";
-import {PlusIcon} from "@heroicons/react/24/solid";
-import EmptyState from "@/components/shared/EmptyState";
 import StatsBox, {StatsItem} from "@/components/dashboard/StatsBox";
-import Avatar from "@/components/shared/Avatar";
+import ProjectBox from "@/components/dashboard/ProjectBox";
 
 const stats: StatsItem[] = [
   {id: 1, name: 'Total keys', stat: '71,897', icon: UsersIcon, change: '122', changeType: 'increase', showChange: false},
-  {id: 2, name: 'Translated keys', stat: '58.16%', icon: EnvelopeOpenIcon, change: '5.4%', changeType: 'increase', showChange: true},
+  {id: 2, name: 'Translated keys', stat: '58.16%', icon: EnvelopeOpenIcon, change: '5.4%', changeType: 'increase', showChange: false},
   {id: 3, name: 'Languages', stat: '2', icon: CursorArrowRaysIcon, change: '3.2%', changeType: 'decrease', showChange: false},
 ]
 
@@ -43,21 +41,10 @@ export default function Dashboard() {
           {/*  />*/}
           {/*</div>*/}
 
-          <div className="w-full mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex gap-4 items-center">
-                  <Avatar />
-                  <p className="text-xl">Bodil</p>
-                </div>
-
-                <div className="pt-1">
-                  <div className="overflow-hidden h-2 text-xs flex rounded bg-emerald-50">
-                    <div className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500 w-1/3"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-col gap-6 w-full mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <ProjectBox />
+            <ProjectBox />
+            <ProjectBox />
           </div>
         </main>
       </div>

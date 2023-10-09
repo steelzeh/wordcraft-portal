@@ -1,11 +1,11 @@
-import './styles/globals.scss'
+import '@/styles/globals.scss'
 import {Inter, Roboto_Mono} from "next/font/google";
 import React from "react";
 
 const inter = Inter({
     subsets: ['latin'],
     display: 'swap',
-    weight: ['500', '600', '700'],
+    weight: ['400', '500', '600', '700'],
     variable: '--font-inter',
 })
 
