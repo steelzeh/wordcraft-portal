@@ -5,7 +5,7 @@ export default function DashboardLanguages() {
   return (
     <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6">
       <h2 className="mb-10">Languages</h2>
-      <div className="flex flex-col gap-10">
+      <div className="-mx-4 flex flex-col gap-6">
         <LanguageBox />
         <LanguageBox />
         <LanguageBox />
@@ -16,7 +16,7 @@ export default function DashboardLanguages() {
 
 function LanguageBox() {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex cursor-pointer flex-col gap-2 rounded-lg p-4 hover:bg-gray-100">
       <div className="flex justify-between gap-4">
         <div className="flex items-center gap-3">
           <img
