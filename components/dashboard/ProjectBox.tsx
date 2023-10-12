@@ -3,9 +3,13 @@ import {ChevronRightIcon} from "@heroicons/react/20/solid";
 import ProgressBar from "@/components/shared/ProgressBar";
 import React from "react";
 
-export default function ProjectBox() {
+type ProjectBoxProps = {
+  onClick: React.MouseEventHandler
+}
+
+export default function ProjectBox({ onClick }: ProjectBoxProps) {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6 hover:bg-gray-50 cursor-pointer">
+    <div onClick={onClick} className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6 hover:bg-gray-50 cursor-pointer">
       <div className="flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <div className="flex gap-4 items-center">

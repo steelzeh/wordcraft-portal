@@ -1,0 +1,49 @@
+import ProgressBar from '@/components/shared/ProgressBar';
+import React from 'react';
+
+export default function DashboardLanguages() {
+  return (
+    <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6">
+      <h2 className="mb-10">Languages</h2>
+      <div className="flex flex-col gap-10">
+        <LanguageBox />
+        <LanguageBox />
+        <LanguageBox />
+      </div>
+    </div>
+  );
+}
+
+function LanguageBox() {
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <img
+            className="inline-block h-6 w-6 rounded-full object-cover ring-2 ring-white"
+            src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"
+            alt=""
+          />
+          <p className="text-xl font-medium">English</p>
+
+          <div className="flex items-center justify-center rounded-full bg-gray-200 px-4">
+            <p>Base</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 ">
+            <span className="h-3 w-3 rounded-full bg-primary-normal/90"></span>
+            <p className="text-sm text-gray-600">Translated</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-full bg-primary-light/25"></span>
+            <p className="text-sm text-gray-600">Not translated</p>
+          </div>
+        </div>
+      </div>
+
+      <ProgressBar progress={75} />
+    </div>
+  );
+}
