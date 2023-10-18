@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import EditorSidebar from '@/app/projects/[id]/editor/components/editor-sidebar';
 import TranslationBox from '@/app/projects/[id]/editor/components/translation-box';
 import EditorToolbar from '@/app/projects/[id]/editor/components/editor-toolbar';
-import { ITranslationAsset, translations } from '@/utils/translations-mock';
+import { ITranslationAsset, translations } from '@/utils/mocks/translations.mock';
 
 export default function Editor() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);

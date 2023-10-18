@@ -1,7 +1,7 @@
 import TextareaAutosize from 'react-textarea-autosize';
 import React, { useEffect, useState } from 'react';
 import { classNames } from '@/utils/html-util';
-import { ITranslation, ITranslationAsset, translations } from '@/utils/translations-mock';
+import { ITranslation, ITranslationAsset, translations } from '@/utils/mocks/translations.mock';
 
 type TranslationBoxProps = {
   translation: ITranslationAsset;
@@ -43,10 +43,10 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
           props.isSelected ? 'border-primary border' : '',
           'bg-base-100 flex w-full cursor-pointer flex-col gap-2 overflow-hidden rounded-lg border-2'
         )}>
-        {props.translation.languages.map((asset: ITranslation) => (
+        {props.translation.languages.map((asset: ITranslation, index) => (
           <div
             key={asset.lang}
-            className="flex flex-col gap-4 border-b p-4"
+            className={classNames(index === props.translation.languages.length - 1 ? '' : 'border-b', 'flex flex-col gap-4 p-4')}
             onClick={e => {
               e.stopPropagation();
               selectTextArea(asset.lang);
