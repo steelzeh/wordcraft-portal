@@ -15,7 +15,7 @@ const stats: StatsItem[] = [
 
 export default function Dashboard() {
   return (
-    <>
+    <div className="h-full w-full overflow-y-scroll">
       <div className="py-10">
         <header>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -47,6 +47,6 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
-    </>
+    </div>
   );
 }

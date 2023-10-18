@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function DashboardLanguages() {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6">
+    <div className="bg-base-100 relative overflow-hidden rounded-lg p-5 shadow sm:px-6 sm:pt-6">
       <h2 className="mb-10">Languages</h2>
       <div className="-mx-4 flex flex-col gap-6">
         <LanguageBox />
@@ -33,11 +33,11 @@ function LanguageBox() {
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 ">
-            <span className="h-3 w-3 rounded-full bg-primary-normal/90"></span>
+            <span className="bg-primary/90 h-3 w-3 rounded-full"></span>
             <p className="text-sm text-gray-600">Translated</p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-full bg-primary-light/25"></span>
+            <span className="bg-primary/25 h-3 w-3 rounded-full"></span>
             <p className="text-sm text-gray-600">Not translated</p>
           </div>
         </div>

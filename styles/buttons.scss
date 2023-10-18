@@ -16,7 +16,7 @@
 
 .primary-button {
   @extend %necessities-button;
-  @apply flex bg-primary-normal hover:enabled:bg-orange-600 rounded-lg items-center justify-center enabled:text-white;
+  @apply flex bg-primary hover:enabled:bg-orange-600 rounded-lg items-center justify-center enabled:text-white;
 }
 
 .primary-button i {

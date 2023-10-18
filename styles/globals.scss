@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "buttons";
-@import "text";
+//@import "buttons";
+//@import "text";
 
 :root {
   @apply max-h-full h-full max-w-full w-full overflow-hidden;
@@ -16,4 +16,5 @@ body {
 main {
   @apply h-full w-full;
 }
+
 

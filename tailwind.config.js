@@ -5,20 +5,32 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
-
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  daisyui: {
+    themes: [
+      {
+        brand: {
+          primary: '#fbbf24',
+          secondary: '#78716c',
+          accent: '#f9a8d4',
+          neutral: '#222534',
+          'base-100': '#fff',
+          'base-200': '#F9FAFB',
+          'base-300': '#f5f5f5',
+          info: '#4399ef',
+          success: '#22c55e',
+          warning: '#f97316',
+          error: '#ef4444',
+        },
+      },
+      'dark',
+    ],
+  },
   theme: {
     transparent: 'transparent',
     current: 'currentColor',
     extend: {
       colors: {
-        primary: {
-          normal: '#FF731D',
-          light: '#FFB182',
-          dark: '#D65100',
-        },
         tremor: {
           brand: {
             faint: '#eff6ff', // blue-50
@@ -105,6 +117,6 @@ module.exports = {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss')],
+  plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss'), require('daisyui')],
   purge: false,
 };

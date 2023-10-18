@@ -24,10 +24,6 @@ const activity: any[] = [
   },
 ];
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function DashboardFeed() {
   return (
     <div className="flow-root">

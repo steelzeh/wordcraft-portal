@@ -1,36 +1,42 @@
 'use client';
 
 import React, { useState } from 'react';
+import EditorSidebar from '@/app/projects/[id]/editor/components/editor-sidebar';
+import TranslationBox from '@/app/projects/[id]/editor/components/translation-box';
+import EditorToolbar from '@/app/projects/[id]/editor/components/editor-toolbar';
+import { ITranslationAsset, translations } from '@/utils/translations-mock';
 
 export default function Editor() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [selectedTranslation, setSelectedTranslation] = useState<ITranslationAsset>();
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      <main className={`relative flex flex-1 flex-col overflow-hidden ${isSidebarVisible ? 'md:w-3/4' : 'w-full'}`}>
-        {/* Main Content */}
-        Content here...
-        {/* Sidebar Toggle Button for smaller screens */}
-        <button className="absolute right-5 top-5 md:hidden" onClick={() => setIsSidebarVisible(!isSidebarVisible)}>
-          Toggle Sidebar
-        </button>
+    <div className="bg-base-200 flex h-full">
+      <main className={`relative flex flex-1 flex-col overflow-y-scroll ${isSidebarVisible ? 'md:w-3/4' : 'w-full'} gap-4`}>
+        {/* Toolbar */}
+        <EditorToolbar />
+
+        {/* Editor */}
+        <div className="flex flex-col gap-6 p-6">
+          {translations.map((translation, index) => (
+            <TranslationBox
+              props={{ translation, isSelected: selectedTranslation?.key === translation.key }}
+              key={index}
+              didSelect={t => {
+                setSelectedTranslation(t);
+              }}
+            />
+          ))}
+        </div>
       </main>
 
-      <Sidebar isSidebarVisible={false} />
+      <div className="block md:hidden">
+        {isSidebarVisible && <EditorSidebar isSmallScreen={true} setIsSidebarVisible={setIsSidebarVisible} />}
+      </div>
+
+      <div className="hidden md:block">
+        <EditorSidebar isSmallScreen={false} setIsSidebarVisible={setIsSidebarVisible} />
+      </div>
     </div>
   );
 }
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
-const Sidebar: React.FC<{ isSidebarVisible: boolean }> = ({ isSidebarVisible }) => {
-  console.log(isSidebarVisible);
-  return (
-    <aside className="absolute right-0 hidden h-full w-64 overflow-auto bg-white md:block md:w-[300px]">
-      {/* Sidebar Content */}
-      Sidebar content...
-    </aside>
-  );
-};

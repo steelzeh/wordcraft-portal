@@ -23,7 +23,7 @@ const data = [
 
 export default function DashboardChart() {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-white p-5 shadow sm:px-6 sm:pt-6">
+    <div className="bg-base-100 relative overflow-hidden rounded-lg p-5 shadow sm:px-6 sm:pt-6">
       <h2 className="mb-1">Activity</h2>
       <p className="mb-8 text-gray-400">Last 30 days</p>
       <div>
