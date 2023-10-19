@@ -2,10 +2,11 @@ import { BarsArrowUpIcon, ChevronDownIcon, MagnifyingGlassIcon } from '@heroicon
 import { PlusIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FunnelIcon } from '@heroicons/react/24/outline';
+import Dropdown from '@/components/shared/dropdown';
 
 export default function EditorToolbar() {
   return (
-    <div className="bg-base-100 sticky top-0 flex items-center justify-between gap-4 p-4 shadow">
+    <div className="bg-base-100 sticky top-0 z-10 flex items-center justify-between gap-4 p-4 shadow">
       <div className="flex items-center gap-4">
         <div className="flex rounded-md shadow-sm">
           <div className="relative flex-grow focus-within:z-10">
@@ -24,7 +25,7 @@ export default function EditorToolbar() {
               name="desktop-search-candidate"
               id="desktop-search-candidate"
               className="hidden w-full rounded-none rounded-l-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:block sm:text-sm"
-              placeholder="Search candidates"
+              placeholder="Search"
             />
           </div>
           <button
@@ -34,13 +35,14 @@ export default function EditorToolbar() {
             <span className="ml-2">Sort</span>
             <ChevronDownIcon className="-mr-1.5 ml-2.5 h-5 w-5 text-gray-400" aria-hidden="true" />
           </button>
-          <button
-            type="button"
-            className="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-            <FunnelIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            <span className="ml-2">Filter</span>
-            <ChevronDownIcon className="-mr-1.5 ml-2.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-          </button>
+
+          <Dropdown>
+            <div className="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+              <FunnelIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              <span className="ml-2">Filter</span>
+              <ChevronDownIcon className="-mr-1.5 ml-2.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+            </div>
+          </Dropdown>
         </div>
       </div>
 
