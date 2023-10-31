@@ -3,6 +3,7 @@ import { PlusIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FunnelIcon } from '@heroicons/react/24/outline';
 import Dropdown from '@/components/shared/dropdown';
+import { MdOutlineAdd } from 'react-icons/md';
 
 export default function EditorToolbar() {
   return (
@@ -47,8 +48,8 @@ export default function EditorToolbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <button className="btn btn-primary">
-          <PlusIcon className="h-5 w-5" aria-hidden="true" />
+        <button className="btn btn-primary btn-sm">
+          <MdOutlineAdd className="h-5 w-5" aria-hidden="true" />
           Add
         </button>
       </div>

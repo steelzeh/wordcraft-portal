@@ -1,18 +1,12 @@
 import '@/styles/globals.scss';
-import { Inter, Roboto_Mono } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 import React from 'react';
 
-const inter = Inter({
+const main = Nunito({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600', '700'],
-  variable: '--font-inter',
-});
-
-const roboto_mono = Roboto_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
+  variable: '--font-main',
 });
 
 export const metadata = {
@@ -22,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html data-theme="brand" lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
+    <html data-theme="brand" lang="en" className={`${main.variable}`}>
       <body>
         <main>{children}</main>
       </body>

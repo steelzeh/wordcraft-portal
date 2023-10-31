@@ -58,7 +58,7 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
         </div>
         <div className="flex items-center gap-2">
           <div
-            className="hover:bg-success/25 tooltip flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-2 p-1"
+            className="hover:bg-success/25 tooltip tooltip-secondary flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-2 p-1"
             data-tip="Mark as verfied">
             <CheckIcon className="h-4 w-4 text-black" />
           </div>
@@ -122,7 +122,15 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
             {selectedTextArea === textRefs.current[asset.lang] && props.isSelected ? (
               <div className="flex items-center justify-between">
                 <div>
-                  <button className="btn btn-xs rounded-full bg-transparent normal-case">Discard</button>
+                  <button
+                    className="btn btn-xs rounded-full bg-gray-100 normal-case"
+                    onClick={e => {
+                      e.stopPropagation();
+                      selectedTextArea?.blur();
+                      setSelectedTextArea(undefined);
+                    }}>
+                    Discard
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -137,7 +145,7 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
                       <ImTextColor />
                     </div>
                   )}
-                  <button className="btn btn-xs btn-secondary rounded-full normal-case">Save</button>
+                  <button className="btn btn-xs btn-primary rounded-full normal-case">Save</button>
                 </div>
               </div>
             ) : (

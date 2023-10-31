@@ -10,8 +10,8 @@ module.exports = {
     themes: [
       {
         brand: {
-          primary: '#fbbf24',
-          secondary: '#78716c',
+          primary: '#5272F2',
+          secondary: '#FFA259',
           accent: '#f9a8d4',
           neutral: '#222534',
           'base-100': '#fff',
@@ -21,6 +21,8 @@ module.exports = {
           success: '#22c55e',
           warning: '#f97316',
           error: '#ef4444',
+          white: '#fff',
+          '--rounded-btn': '8px',
         },
       },
       'dark',
@@ -61,10 +63,7 @@ module.exports = {
           },
         },
       },
-      fontFamily: {
-        sans: ['var(--font-inter)'],
-        mono: ['var(--font-roboto-mono)'],
-      },
+
       boxShadow: {
         // light
         'tremor-input': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -117,6 +116,6 @@ module.exports = {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss'), require('daisyui')],
+  plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss'), require('@tailwindcss/typography'), require('daisyui')],
   purge: false,
 };

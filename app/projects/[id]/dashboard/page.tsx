@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import StatsBox, { StatsItem } from '@/components/dashboard/StatsBox';
+import StatsBox, { StatsItem } from '@/app/projects/components/statsBox';
 import { CursorArrowRaysIcon, EnvelopeOpenIcon, UsersIcon } from '@heroicons/react/24/outline';
 import DashboardLanguages from '@/app/projects/[id]/components/dashboard-languages';
 import DashboardHistory from '@/app/projects/[id]/components/dashboard-history';
@@ -17,7 +15,7 @@ export default function Dashboard() {
   return (
     <div className="h-full w-full overflow-y-scroll">
       <div className="py-10">
-        <header>
+        <header className="mb-5">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
           </div>
@@ -26,7 +24,7 @@ export default function Dashboard() {
         <main className="flex flex-col gap-10">
           <div className="mx-auto w-full max-w-7xl sm:px-6 lg:px-8">
             <div>
-              <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {stats.map(item => (
                   <StatsBox key={item.id} item={item} />
                 ))}
