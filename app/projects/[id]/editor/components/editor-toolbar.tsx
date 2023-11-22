@@ -1,13 +1,12 @@
 import { BarsArrowUpIcon, ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
-import { PlusIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FunnelIcon } from '@heroicons/react/24/outline';
-import Dropdown from '@/components/shared/dropdown';
+import Dropdown from '@/components/shared/Dropdown';
 import { MdOutlineAdd } from 'react-icons/md';
 
 export default function EditorToolbar() {
   return (
-    <div className="bg-base-100 sticky top-0 z-10 flex items-center justify-between gap-4 p-4 shadow">
+    <div className="sticky top-0 z-10 flex items-center justify-between gap-4 bg-base-100 p-4 shadow">
       <div className="flex items-center gap-4">
         <div className="flex rounded-md shadow-sm">
           <div className="relative flex-grow focus-within:z-10">

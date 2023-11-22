@@ -1,14 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EditorSidebar from '@/app/projects/[id]/editor/components/editor-sidebar';
 import TranslationBox from '@/app/projects/[id]/editor/components/translation-box';
 import EditorToolbar from '@/app/projects/[id]/editor/components/editor-toolbar';
-import { ITranslationAsset, translations } from '@/utils/mocks/translations.mock';
+import { ITranslationAsset } from '@/utils/mocks/translations.mock';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function EditorClient() {
+  const projectId = usePathname().split('/')[2];
+
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [selectedTranslation, setSelectedTranslation] = useState<ITranslationAsset>();
+
+  const [data, setData] = useState<ITranslationAsset[]>([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/translations?project_id=${projectId}`)
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -18,7 +33,7 @@ export default function EditorClient() {
 
         {/* Editor */}
         <div className="flex flex-col gap-6 p-6">
-          {translations.map((translation, index) => (
+          {data.map((translation, index) => (
             <TranslationBox
               props={{ translation, isSelected: selectedTranslation?.key === translation.key }}
               key={index}

@@ -77,12 +77,14 @@ export interface Database {
           {
             foreignKeyName: "organization_member_org_id_fkey"
             columns: ["org_id"]
+            isOneToOne: false
             referencedRelation: "organization"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "organization_member_user_id_fkey"
             columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
@@ -111,6 +113,7 @@ export interface Database {
           {
             foreignKeyName: "project_org_id_fkey"
             columns: ["org_id"]
+            isOneToOne: false
             referencedRelation: "organization"
             referencedColumns: ["id"]
           }
@@ -148,12 +151,14 @@ export interface Database {
           {
             foreignKeyName: "project_language_language_id_fkey"
             columns: ["language_id"]
+            isOneToOne: false
             referencedRelation: "default_languages"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "project_language_project_id_fkey"
             columns: ["project_id"]
+            isOneToOne: false
             referencedRelation: "project"
             referencedColumns: ["id"]
           }
@@ -185,12 +190,14 @@ export interface Database {
           {
             foreignKeyName: "translation_asset_key_id_fkey"
             columns: ["key_id"]
+            isOneToOne: false
             referencedRelation: "translation_key"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "translation_asset_language_id_fkey"
             columns: ["language_id"]
+            isOneToOne: false
             referencedRelation: "project_language"
             referencedColumns: ["id"]
           }
@@ -222,12 +229,14 @@ export interface Database {
           {
             foreignKeyName: "translation_key_project_id_fkey"
             columns: ["project_id"]
+            isOneToOne: false
             referencedRelation: "project"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "translation_key_user_id_fkey"
             columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
@@ -246,6 +255,28 @@ export interface Database {
           translated_count: number
           total_count: number
           translation_percentage: number
+        }[]
+      }
+      fetch_translations_by_project: {
+        Args: {
+          p_project_id: string
+        }
+        Returns: {
+          key_id: string
+          project_id: string
+          key: string
+          created_at_key: string
+          user_id: string
+          language_id: string
+          code: string
+          name: string
+          created_at_language: string
+          project_id_language: string
+          is_base: boolean
+          asset_id: string
+          key_id_asset: string
+          translation: string
+          created_at_asset: string
         }[]
       }
     }

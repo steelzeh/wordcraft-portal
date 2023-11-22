@@ -1,9 +1,11 @@
+'use client';
+
 import React, { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ArchiveBoxIcon, DocumentDuplicateIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/20/solid';
 import { classNames } from '@/utils/html-util';
 
-export default function Dropdown({ children }: { children: React.ReactNode }) {
+export default function Dropdown({ children, onDropdownClick }: { children: React.ReactNode; onDropdownClick: (e: string) => void }) {
   return (
     <Menu as="div" className="relative z-0 inline-block text-left">
       <div>
@@ -24,6 +26,7 @@ export default function Dropdown({ children }: { children: React.ReactNode }) {
               {({ active }) => (
                 <a
                   href="#"
+                  onClick={() => onDropdownClick('edit')}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'group flex items-center px-4 py-2 text-sm'
@@ -37,6 +40,7 @@ export default function Dropdown({ children }: { children: React.ReactNode }) {
               {({ active }) => (
                 <a
                   href="#"
+                  onClick={() => onDropdownClick('duplicate')}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'group flex items-center px-4 py-2 text-sm'
@@ -52,6 +56,7 @@ export default function Dropdown({ children }: { children: React.ReactNode }) {
               {({ active }) => (
                 <a
                   href="#"
+                  onClick={() => onDropdownClick('archive')}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'group flex items-center px-4 py-2 text-sm'
@@ -66,8 +71,9 @@ export default function Dropdown({ children }: { children: React.ReactNode }) {
               {({ active }) => (
                 <a
                   href="#"
+                  onClick={() => onDropdownClick('delete')}
                   className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-error', 'group flex items-center px-4 py-2 text-sm')}>
-                  <TrashIcon className="text-error mr-3 h-5 w-5 group-hover:text-gray-500" aria-hidden="true" />
+                  <TrashIcon className="mr-3 h-5 w-5 text-error group-hover:text-gray-500" aria-hidden="true" />
                   Delete
                 </a>
               )}
