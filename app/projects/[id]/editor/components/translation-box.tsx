@@ -139,15 +139,16 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
           }
         }}
         didClickCancel={() => {
-          selectedTextArea?.blur();
-          setSelectedTextArea(undefined);
+          if (messageDialogType === EMessageDialogType.discard_changes) {
+            setSelectedTextArea(selectedTextArea);
+          }
         }}
       />
 
       <div className="flex justify-between">
-        <div className="flex items-center gap-2">
-          <input type="checkbox" defaultChecked={false} className="checkbox-primary checkbox focus:ring-transparent" />
-          <div className="cursor-pointer rounded-lg px-2 py-1 hover:bg-primary-content" onClick={() => toast.success('Key copied!')}>
+        <div className="flex items-center gap-1">
+          <input type="checkbox" defaultChecked={false} className="checkbox-primary checkbox checkbox-sm focus:ring-transparent" />
+          <div className="cursor-pointer rounded-lg p-1 hover:bg-primary-content" onClick={() => toast.success('Key copied to clipboard!')}>
             <p className="break-all text-sm font-medium">{props.translation.key}</p>
           </div>
         </div>
@@ -230,21 +231,17 @@ export default function TranslationBox({ props, didSelect }: { props: Translatio
             {selectedTextArea === textRefs.current[asset.lang] && props.isSelected ? (
               <div className="flex items-center justify-between">
                 <div>
-                  {asset?.translation !== assets[asset.lang].translation ? (
-                    <button
-                      id="discard"
-                      className="btn btn-xs rounded-full bg-gray-100 normal-case"
-                      onClick={e => {
-                        e.stopPropagation();
-                        selectedTextArea?.blur();
-                        setSelectedTextArea(undefined);
-                        resetTranslation(asset);
-                      }}>
-                      Discard
-                    </button>
-                  ) : (
-                    ''
-                  )}
+                  <button
+                    id="discard"
+                    className="btn btn-xs rounded-full bg-gray-100 normal-case"
+                    onClick={e => {
+                      e.stopPropagation();
+                      selectedTextArea?.blur();
+                      setSelectedTextArea(undefined);
+                      resetTranslation(asset);
+                    }}>
+                    Discard
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2">

@@ -35,3 +35,24 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
   return NextResponse.json(data);
 }
+
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  const schema = z.object({
+    id: z.string(),
+  });
+
+  const valid = schema.safeParse({ id: params.id });
+
+  if (!valid.success) {
+    return NextResponse.json(valid, { status: StatusCode.BAD_REQUEST });
+  }
+
+  const supabase = createRouteHandlerClient<Database>({ cookies });
+  const { data, error } = await supabase.from('translation_asset').delete().eq('id', params.id).select();
+
+  if (error) {
+    return NextResponse.json({ message: error.message, code: error.code }, { status: 400 });
+  }
+
+  return NextResponse.json(data);
+}
